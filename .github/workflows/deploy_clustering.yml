@@ -7,6 +7,7 @@ on:
     paths:
       - 'Clustering - 4/src/**'
       - 'Clustering - 4/infrastructure/**'
+      - '.github/workflows/deploy_clustering.yml'
 
 jobs:
   deploy-infrastructure:
