@@ -1,0 +1,80 @@
+name: Deploy Clustering Pipeline to AWS EMR
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Clustering - 4/src/**'
+      - 'Clustering - 4/infrastructure/**'
+
+jobs:
+  deploy-infrastructure:
+    name: Deploy EMR Serverless (CDK)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Setup Node.js (for CDK)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install AWS CDK
+        run: npm install -g aws-cdk
+
+      - name: Setup Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install CDK Python deps
+        working-directory: "Clustering - 4/infrastructure"
+        run: |
+          python -m pip install aws-cdk-lib constructs
+
+      - name: Deploy CDK Stack
+        working-directory: "Clustering - 4/infrastructure"
+        run: |
+          # The auto-approve flag bypasses IAM security prompts for automated CI
+          cdk deploy --require-approval never
+
+  deploy-pyspark-scripts:
+    name: Sync PySpark Scripts to S3
+    runs-on: ubuntu-latest
+    needs: deploy-infrastructure # Make sure infra exists before syncing scripts
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+          
+      - name: Zip PySpark dependencies
+        working-directory: "Clustering - 4/src"
+        run: |
+          zip -r src.zip *.py
+          
+      - name: Sync scripts to S3
+        run: |
+          # Fetch dynamic AWS Account ID to match deterministic bucket name
+          DEFAULT_ACCOUNT=$(aws sts get-caller-identity --query "Account" --output text)
+          S3_BUCKET="s3://health-big-data-emr-${DEFAULT_ACCOUNT}/scripts/"
+          
+          # Upload python main 
+          aws s3 cp "Clustering - 4/src/main.py" $S3_BUCKET
+          
+          # Upload dependencies bundle
+          aws s3 cp "Clustering - 4/src/src.zip" $S3_BUCKET
