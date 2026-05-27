@@ -15,21 +15,31 @@ def load_rdd_raw_data(spark, data_dir: str):
             rdd format for the medication, lab result and diagnostic
     '''
     lab_query = """
-        SELECT Member_ID as patientID, Date_Resulted as date, Result_Name as resultName,
-        CAST(REPLACE(Numeric_Result, ',', '') AS FLOAT) as value
+        SELECT 
+            Member_ID AS patientID, 
+            Date_Resulted AS date, 
+            Result_Name AS resultName,
+            CAST(REPLACE(Numeric_Result, ',', '') AS FLOAT) AS value
         FROM lab_results_INPUT
-        WHERE Numeric_Result IS NOT NULL AND Numeric_Result != ''
+        WHERE Numeric_Result IS NOT NULL 
+          AND Numeric_Result != ''
     """
 
     diagnostic_query = """
-        SELECT e.Member_ID as patientID, e.Encounter_DateTime as date, dx.Code_ID as code
+        SELECT 
+            e.Member_ID AS patientID, 
+            e.Encounter_DateTime AS date, 
+            dx.Code_ID AS code
         FROM encounter_dx_INPUT dx
         JOIN encounter_INPUT e
-        ON dx.Encounter_ID = e.Encounter_ID
+          ON dx.Encounter_ID = e.Encounter_ID
     """
 
     medication_query = """
-        SELECT Member_ID as patientID, Order_Date as date, Drug_Name as medicine
+        SELECT 
+            Member_ID AS patientID, 
+            Order_Date AS date, 
+            Drug_Name AS medicine
         FROM medication_orders_INPUT
     """
 
