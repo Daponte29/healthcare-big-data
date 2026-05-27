@@ -1,0 +1,51 @@
+{
+  "version": "53.0.0",
+  "files": {
+    "faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6": {
+      "displayName": "WebHealthClusteringStack/Custom::S3AutoDeleteObjectsCustomResourceProvider Code",
+      "source": {
+        "path": "asset.faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "920373029239-us-east-1-8e272859": {
+          "bucketName": "cdk-hnb659fds-assets-920373029239-us-east-1",
+          "objectKey": "faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::920373029239:role/cdk-hnb659fds-file-publishing-role-920373029239-us-east-1"
+        }
+      }
+    },
+    "3b1721fd2beacf33e75a38e6671a53b6adb5000d48db2e6b24eb9361e84053c9": {
+      "displayName": "WebHealthClusteringStack Template",
+      "source": {
+        "path": "WebHealthClusteringStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "920373029239-us-east-1-375dabef": {
+          "bucketName": "cdk-hnb659fds-assets-920373029239-us-east-1",
+          "objectKey": "3b1721fd2beacf33e75a38e6671a53b6adb5000d48db2e6b24eb9361e84053c9.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::920373029239:role/cdk-hnb659fds-file-publishing-role-920373029239-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {
+    "599a1dc3f2b20fae260eae6c6b9a0b367ddb6235b6af408c9d8e58c59748ddb0": {
+      "displayName": "EmrServerlessCustomImage",
+      "source": {
+        "directory": "asset.599a1dc3f2b20fae260eae6c6b9a0b367ddb6235b6af408c9d8e58c59748ddb0"
+      },
+      "destinations": {
+        "920373029239-us-east-1-d6942ce1": {
+          "repositoryName": "cdk-hnb659fds-container-assets-920373029239-us-east-1",
+          "imageTag": "599a1dc3f2b20fae260eae6c6b9a0b367ddb6235b6af408c9d8e58c59748ddb0",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::920373029239:role/cdk-hnb659fds-image-publishing-role-920373029239-us-east-1"
+        }
+      }
+    }
+  }
+}

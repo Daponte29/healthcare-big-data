@@ -3,7 +3,8 @@ from aws_cdk import (
     RemovalPolicy,
     aws_s3 as s3,
     aws_iam as iam,
-    aws_emrserverless as emrs
+    aws_emrserverless as emrs,
+    aws_ecr_assets as ecr_assets
 )
 from constructs import Construct
 
@@ -29,16 +30,27 @@ class WebHealthClusteringStack(Stack):
             self, "EmrServerlessExecutionRole",
             assumed_by=iam.ServicePrincipal("emr-serverless.amazonaws.com"),
             managed_policies=[
-                iam.ManagedPolicy.from_aws_managed_policy_name("AmazonS3FullAccess") # Make restrictive in prod
+                iam.ManagedPolicy.from_aws_managed_policy_name("AmazonS3FullAccess"), # Make restrictive in prod
+                iam.ManagedPolicy.from_aws_managed_policy_name("AmazonEC2ContainerRegistryReadOnly") # Needed to pull custom Docker image
             ]
         )
 
-        # 3. EMR Serverless Application
+        # 3. Build & Push Custom PySpark + Numpy Docker Image
+        # CDK automatically builds the Dockerfile running locally, creates an ECR repo, and pushes it up securely.
+        custom_docker_image = ecr_assets.DockerImageAsset(
+            self, "EmrServerlessCustomImage",
+            directory="../image" # Path to our newly created Docker folder
+        )
+
+        # 4. EMR Serverless Application
         emr_app = emrs.CfnApplication(
             self, "HealthcareEmrApp",
             release_label="emr-6.10.0",
             type="SPARK",
             name="healthcare-clustering-app",
+            image_configuration=emrs.CfnApplication.ImageConfigurationInputProperty(
+                image_uri=custom_docker_image.image_uri
+            ),
             maximum_capacity=emrs.CfnApplication.MaximumAllowedResourcesProperty(
                 cpu="16 vCPU",
                 memory="64 GB",

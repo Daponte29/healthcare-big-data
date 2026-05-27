@@ -1,0 +1,232 @@
+{
+  "/WebHealthClusteringStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "Kernel._Kernel_create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:212822)",
+        "KernelHost.run (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211877)",
+        "Immediate._onImmediate (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211921)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/WebHealthClusteringStack/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+    {
+      "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+      "data": true
+    }
+  ],
+  "/WebHealthClusteringStack/HealthcareEmrApp": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "HealthcareEmrApp"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "Kernel._Kernel_create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:212822)",
+        "KernelHost.run (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211877)",
+        "Immediate._onImmediate (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211921)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/WebHealthClusteringStack/S3BucketName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "S3BucketName"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "Kernel._Kernel_create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:212822)",
+        "KernelHost.run (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211877)",
+        "Immediate._onImmediate (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211921)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/WebHealthClusteringStack/EmrServerlessAppId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EmrServerlessAppId"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "Kernel._Kernel_create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:212822)",
+        "KernelHost.run (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211877)",
+        "Immediate._onImmediate (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211921)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/WebHealthClusteringStack/EmrExecutionRoleArn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EmrExecutionRoleArn"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "Kernel._Kernel_create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:212822)",
+        "KernelHost.run (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211877)",
+        "Immediate._onImmediate (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211921)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/WebHealthClusteringStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:543 (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:5434)"
+      ]
+    }
+  ],
+  "/WebHealthClusteringStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:543 (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:5434)"
+      ]
+    }
+  ],
+  "/WebHealthClusteringStack/HealthcareBigDataBucket/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "HealthcareBigDataBucket3B41B039"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:212822)",
+        "KernelHost.run (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211877)",
+        "Immediate._onImmediate (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211921)",
+        "...node internals..."
+      ]
+    },
+    {
+      "type": "aws:cdk:analytics:mixin",
+      "data": {
+        "mixin": "aws-cdk-lib.aws_s3.mixins.BucketAutoDeleteObjects"
+      }
+    }
+  ],
+  "/WebHealthClusteringStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/WebHealthClusteringStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/WebHealthClusteringStack/EmrServerlessExecutionRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EmrServerlessExecutionRole889FE50F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Role2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:212822)",
+        "KernelHost.run (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211877)",
+        "Immediate._onImmediate (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:211921)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/WebHealthClusteringStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:543 (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:69889)",
+        "Kernel.invoke (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:54294)"
+      ]
+    }
+  ],
+  "/WebHealthClusteringStack/HealthcareBigDataBucket/Policy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "HealthcareBigDataBucketPolicyDCA87093"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nolot\\AppData\\Local\\Temp\\tmpotbrpqoi\\lib\\program.js:1:212822)"
+      ]
+    },
+    {
+      "type": "aws:cdk:analytics:mixin",
+      "data": {
+        "mixin": "aws-cdk-lib.aws_s3.mixins.BucketPolicyStatements"
+      }
+    }
+  ],
+  "/WebHealthClusteringStack/HealthcareBigDataBucket/AutoDeleteObjectsCustomResource/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "HealthcareBigDataBucketAutoDeleteObjectsCustomResource1EF85C44"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ]
+}

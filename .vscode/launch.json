@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Local PySpark Pipeline",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/Clustering - 4/src/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--data-uri", "${workspaceFolder}/Clustering - 4/data/",
+                "--output-uri", "${workspaceFolder}/Clustering - 4/output/local_debug/"
+            ],
+            "justMyCode": false,
+            "env": {
+                "PYSPARK_PYTHON": "python"
+            }
+        }
+    ]
+}

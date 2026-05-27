@@ -1,0 +1,295 @@
+{
+ "Resources": {
+  "HealthcareBigDataBucket3B41B039": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketName": "health-big-data-emr-920373029239",
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "WebHealthClusteringStack/HealthcareBigDataBucket/Resource"
+   }
+  },
+  "HealthcareBigDataBucketPolicyDCA87093": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "HealthcareBigDataBucket3B41B039"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:PutBucketPolicy",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:DeleteObject*"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "HealthcareBigDataBucket3B41B039",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "HealthcareBigDataBucket3B41B039",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "WebHealthClusteringStack/HealthcareBigDataBucket/Policy/Resource"
+   }
+  },
+  "HealthcareBigDataBucketAutoDeleteObjectsCustomResource1EF85C44": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "HealthcareBigDataBucket3B41B039"
+    }
+   },
+   "DependsOn": [
+    "HealthcareBigDataBucketPolicyDCA87093"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "WebHealthClusteringStack/HealthcareBigDataBucket/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "WebHealthClusteringStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role"
+   }
+  },
+  "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-920373029239-us-east-1",
+     "S3Key": "faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6.zip"
+    },
+    "Timeout": 900,
+    "MemorySize": 128,
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs22.x",
+    "Description": {
+     "Fn::Join": [
+      "",
+      [
+       "Lambda function for auto-deleting objects in ",
+       {
+        "Ref": "HealthcareBigDataBucket3B41B039"
+       },
+       " S3 bucket."
+      ]
+     ]
+    }
+   },
+   "DependsOn": [
+    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "WebHealthClusteringStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
+    "aws:asset:path": "asset.faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6",
+    "aws:asset:property": "Code"
+   }
+  },
+  "EmrServerlessExecutionRole889FE50F": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "emr-serverless.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonS3FullAccess"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "WebHealthClusteringStack/EmrServerlessExecutionRole/Resource"
+   }
+  },
+  "HealthcareEmrApp": {
+   "Type": "AWS::EMRServerless::Application",
+   "Properties": {
+    "ImageConfiguration": {
+     "ImageUri": {
+      "Fn::Sub": "920373029239.dkr.ecr.us-east-1.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-920373029239-us-east-1:599a1dc3f2b20fae260eae6c6b9a0b367ddb6235b6af408c9d8e58c59748ddb0"
+     }
+    },
+    "MaximumCapacity": {
+     "Cpu": "16 vCPU",
+     "Disk": "200 GB",
+     "Memory": "64 GB"
+    },
+    "Name": "healthcare-clustering-app",
+    "ReleaseLabel": "emr-6.10.0",
+    "Type": "SPARK"
+   },
+   "Metadata": {
+    "aws:cdk:path": "WebHealthClusteringStack/HealthcareEmrApp"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/5WNT2/CMAzFPws9B2+A0KTdSrnsBCrHaUIhmGLaJFXswKqq331qI+3Pcadn+7338xKW6xd4nukHz825njd0gv4g2tRKP/jY8wr6TTQ1iiouLk3vfWbpk1z2mv2ujXlewWQxpGgexW+xQcHd6YZGOBs+VLL2viHT/VDT/g92KhxEC1p0E3pQpC30pW9wBI86KDThqJlRGLbe1BjerK4wHy+jByW2nkl86DaaUaENjOGOoUFmKC4ub9uGjBbyblBFZPG2RPYxmPTke/5j7YO/0xnDxJyeHURX5Kqxs4vSRhnUvpOrd08rWCxgPbsx0TxEJ2QRyqRfiojOiqABAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "WebHealthClusteringStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "S3BucketName": {
+   "Value": {
+    "Ref": "HealthcareBigDataBucket3B41B039"
+   }
+  },
+  "EmrServerlessAppId": {
+   "Value": {
+    "Fn::GetAtt": [
+     "HealthcareEmrApp",
+     "ApplicationId"
+    ]
+   }
+  },
+  "EmrExecutionRoleArn": {
+   "Value": {
+    "Fn::GetAtt": [
+     "EmrServerlessExecutionRole889FE50F",
+     "Arn"
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

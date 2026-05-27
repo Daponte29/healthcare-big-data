@@ -76,4 +76,23 @@ aws s3 cp s3://health-big-data-emr-${ACCOUNT_ID}/output/purity_metrics.txt .
 cat purity_metrics.txt
 ```
 
+### 5. 🐛 Local Debugging Workflow (VS Code)
+
+To save cloud compute costs and iterate quickly, debug your PySpark pipeline locally line-by-line using your own CPU before deploying to AWS.
+
+1. **Set Breakpoints:** Click in the margin to place a red breakpoint in any script inside `src/` (e.g. `src/phenotyping.py`).
+2. **Launch the Debugger:** Open the **Run and Debug** tab in VS Code.
+3. **Run Configuration:** Select the **"Debug Local PySpark Pipeline"** configuration from the dropdown and hit play (or `F5`).
+   * *Note: This auto-maps to your `.vscode/launch.json` file which bypasses AWS and naturally points to your local `/data/` and `/output/local_debug/` directories.*
+4. **Inspect in Real-Time:** Once the execution pauses on your red dot, use the VS Code **Debug Console** to run live spark DataFrame queries (like `medication.show()`) or hover over variables to inspect their states before pushing the job to the cloud.
+
+### 6. 🛑 Tear Down AWS Infrastructure (Save Money)
+
+Once this analysis is completely finished, destroy all active AWS objects so you return to exactly `$0.00` billing. This will wipe out the IAM Roles, the EMR Serverless Application, and seamlessly auto-delete the S3 Bucket and all its contents:
+
+```bash
+cd infrastructure
+npx aws-cdk destroy --all --force
+```
+
 
