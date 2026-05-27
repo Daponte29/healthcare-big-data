@@ -1,5 +1,6 @@
 # VS Code
-.vscode/
+.vscode/*
+!.vscode/launch.json
 
 # Jupyter Notebook
 .ipynb_checkpoints/
