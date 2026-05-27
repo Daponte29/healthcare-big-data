@@ -90,6 +90,8 @@ To save cloud compute costs and iterate quickly, debug your PySpark pipeline loc
 
 Once this analysis is completely finished, destroy all active AWS objects so you return to exactly `$0.00` billing. This will wipe out the IAM Roles, the EMR Serverless Application, and seamlessly auto-delete the S3 Bucket and all its contents:
 
+*Note: Because this is a **Python** CDK project, ensure you run this inside the integrated VS Code terminal where your python environment (and `aws-cdk-lib`) is active, otherwise you will get a `ModuleNotFoundError`.*
+
 ```bash
 cd infrastructure
 npx aws-cdk destroy --all --force
