@@ -3,7 +3,7 @@
 **ATTENTION NEXT AI AGENT:**
 If you are reading this, you have started a new session. The sub-project Clustering - 4/ has been **100% completed, tested, and validated** in the cloud. It successfully refactored a local PySpark notebook into an AWS EMR Serverless pipeline to discover Type 1/Type 2 diabetes cohorts via K-Means and GMM clustering.
 
-## ? Accomplishments (What We Did)
+## Accomplishments
 1. **PySpark Refactoring:** Extracted monolithic BD4H_HW3.ipynb into isolated PySpark modules (data_loader.py, phenotyping.py, eatures.py, clustering.py, main.py).
 2. **AWS CDK Infrastructure:** Built infrastructure/emr_serverless_stack.py to auto-provision S3 (with auto-delete on destroy), IAM Execution Roles, and an EMR Serverless Application.
 3. **Custom ECR Image (Crucial Fix):** Added a Dockerfile to inject 
