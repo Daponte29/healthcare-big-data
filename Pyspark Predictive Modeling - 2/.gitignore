@@ -1,0 +1,20 @@
+# Terraform working files
+infra/terraform/.terraform/
+infra/terraform/*.tfstate
+infra/terraform/*.tfstate.*
+infra/terraform/*.tfplan
+infra/terraform/crash.log
+infra/terraform/override.tf
+infra/terraform/override.tf.json
+infra/terraform/*_override.tf
+infra/terraform/*_override.tf.json
+
+# Local Terraform inputs
+infra/terraform/terraform.tfvars
+infra/terraform/terraform.tfvars.json
+infra/terraform/*.auto.tfvars
+infra/terraform/*.auto.tfvars.json
+
+# Local environment files
+.env
+.env.*

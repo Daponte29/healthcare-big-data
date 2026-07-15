@@ -1,0 +1,3 @@
+name_prefix         = "pyspark-predictive-modeling-2"
+location            = "eastus"
+resource_group_name  = "rg-pyspark-predictive-modeling-2-prd-eus"
