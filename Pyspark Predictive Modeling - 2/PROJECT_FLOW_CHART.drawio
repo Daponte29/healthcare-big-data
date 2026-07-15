@@ -1,72 +1,67 @@
 <mxfile host="65bd71144e">
     <diagram id="azure-pipeline" name="Page-1">
-        <mxGraphModel dx="1280" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" background="#F7F9FC" math="0" shadow="0">
+        <mxGraphModel dx="1155" dy="904" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" background="#F7F9FC" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="title" value="Azure Data Engineering Gameplan - Mortality Prediction" style="whiteSpace=wrap;html=1;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+                <mxCell id="title" value="Azure Data Engineering Gameplan - Mortality Prediction" style="whiteSpace=wrap;html=1;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
                     <mxGeometry x="340" y="20" width="900" height="50" as="geometry"/>
                 </mxCell>
-
-                <mxCell id="raw" value="Raw CSVs\nPatient events + mortality labels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9EAF7;strokeColor=#4A86E8;fontSize=13;" vertex="1" parent="1">
+                <mxCell id="raw" value="Raw CSVs\nPatient events + mortality labels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9EAF7;strokeColor=#4A86E8;fontSize=13;" parent="1" vertex="1">
                     <mxGeometry x="80" y="150" width="180" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="blob" value="Azure Data Lake Storage Gen2\nlanding/raw zone" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF4E5;strokeColor=#6AA84F;fontSize=13;" vertex="1" parent="1">
+                <mxCell id="blob" value="Azure Data Lake Storage Gen2\nlanding/raw zone" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF4E5;strokeColor=#6AA84F;fontSize=13;" parent="1" vertex="1">
                     <mxGeometry x="320" y="150" width="190" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="adf" value="Azure Data Factory\ncopy + schedule pipeline" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#BF9000;fontSize=13;" vertex="1" parent="1">
+                <mxCell id="adf" value="Azure Data Factory\ncopy + schedule pipeline" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#BF9000;fontSize=13;" parent="1" vertex="1">
                     <mxGeometry x="570" y="150" width="200" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="spark" value="Azure Databricks or Synapse Spark\nfeature engineering + cohort stats" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE5CD;strokeColor=#E69138;fontSize=13;" vertex="1" parent="1">
+                <mxCell id="spark" value="Azure Databricks or Synapse Spark\nfeature engineering + cohort stats" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE5CD;strokeColor=#E69138;fontSize=13;" parent="1" vertex="1">
                     <mxGeometry x="820" y="150" width="250" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="curated" value="Curated feature tables\ntraining + testing datasets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9D2E9;strokeColor=#674EA7;fontSize=13;" vertex="1" parent="1">
+                <mxCell id="curated" value="Curated feature tables\ntraining + testing datasets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9D2E9;strokeColor=#674EA7;fontSize=13;" parent="1" vertex="1">
                     <mxGeometry x="1120" y="150" width="220" height="70" as="geometry"/>
                 </mxCell>
-
-                <mxCell id="edge1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="raw" target="blob">
+                <mxCell id="edge1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" parent="1" source="raw" target="blob" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="blob" target="adf">
+                <mxCell id="edge2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" parent="1" source="blob" target="adf" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="adf" target="spark">
+                <mxCell id="edge3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" parent="1" source="adf" target="spark" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="spark" target="curated">
+                <mxCell id="edge4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" parent="1" source="spark" target="curated" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-
-                <mxCell id="train" value="Model training\nlogistic regression / MLflow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#CC0000;fontSize=13;" vertex="1" parent="1">
+                <mxCell id="train" value="Model training\nlogistic regression / MLflow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#CC0000;fontSize=13;" parent="1" vertex="1">
                     <mxGeometry x="1120" y="300" width="220" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="pred" value="Batch scoring / inference\nwrite predictions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE5CD;strokeColor=#B45F06;fontSize=13;" vertex="1" parent="1">
+                <mxCell id="pred" value="Batch scoring / inference\nwrite predictions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE5CD;strokeColor=#B45F06;fontSize=13;" parent="1" vertex="1">
                     <mxGeometry x="1120" y="420" width="220" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="serve" value="Service layer\nPower BI / API / dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#38761D;fontSize=13;" vertex="1" parent="1">
+                <mxCell id="serve" value="Service layer\nPower BI / API / dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#38761D;fontSize=13;" parent="1" vertex="1">
                     <mxGeometry x="1120" y="540" width="220" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="monitor" value="Azure Monitor + alerts\nrun health / data quality checks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D0E0E3;strokeColor=#45818E;fontSize=13;" vertex="1" parent="1">
-                    <mxGeometry x="820" y="540" width="250" height="70" as="geometry"/>
+                <mxCell id="monitor" value="Azure Monitor + alerts\nrun health / data quality checks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D0E0E3;strokeColor=#45818E;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="770" y="540" width="250" height="70" as="geometry"/>
                 </mxCell>
-
-                <mxCell id="edge5" value="train" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="curated" target="train">
+                <mxCell id="edge5" value="train" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" parent="1" source="curated" target="train" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge6" value="score" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="train" target="pred">
+                <mxCell id="edge6" value="score" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" parent="1" source="train" target="pred" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge7" value="publish" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="pred" target="serve">
+                <mxCell id="edge7" value="publish" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" parent="1" source="pred" target="serve" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge8" value="metrics" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="serve" target="monitor">
+                <mxCell id="edge8" value="metrics" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" parent="1" source="serve" target="monitor" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="edge9" value="feedback loop" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;dashed=1;" edge="1" parent="1" source="monitor" target="adf">
+                <mxCell id="edge9" value="feedback loop" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;dashed=1;" parent="1" source="monitor" target="adf" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-
-                <mxCell id="note1" value="Bang for buck: keep storage cheap, use Spark only for batch transforms, and avoid always-on serving unless needed." style="whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+                <mxCell id="note1" value="Bang for buck: keep storage cheap, use Spark only for batch transforms, and avoid always-on serving unless needed." style="whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
                     <mxGeometry x="80" y="680" width="1260" height="40" as="geometry"/>
                 </mxCell>
             </root>
